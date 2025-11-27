@@ -87,4 +87,15 @@ class GuruResource extends Resource
             'edit' => Pages\EditGuru::route('/{record}/edit'),
         ];
     }
+
+         //ROLE
+   public static function canViewAny(): bool
+    {
+        return ! in_array(auth()->user()->role, ['editor', 'viewer']);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ! in_array(auth()->user()->role, ['editor', 'viewer']);
+    }
 }

@@ -34,8 +34,21 @@ class UserResource extends Resource
                 Forms\Components\DateTimePicker::make('email_verified_at'),
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->required()
-                    ->maxLength(255),
+                    ->label('Password')
+                    ->nullable()
+                    ->dehydrateStateUsing(fn ($state) => filled($state) ? bcrypt($state) : null)
+                    ->required(fn (string $operation) => $operation === 'create')
+                    ->dehydrated(fn ($state) => filled($state)) // hanya di-save jika diisi
+                    ->autocomplete('new-password'),
+                Forms\Components\Select::make('role')
+                    ->label('Role')
+                    ->options([
+                        'admin' => 'Admin',
+                        'editor' => 'Editor',
+                        'viewer' => 'Viewer',
+                    ])
+                    ->default('viewer')
+                    ->required(),
             ]);
     }
 
@@ -86,5 +99,16 @@ class UserResource extends Resource
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
+    }
+
+        //ROLE
+   public static function canViewAny(): bool
+    {
+        return ! in_array(auth()->user()->role, ['editor', 'viewer']);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ! in_array(auth()->user()->role, ['editor', 'viewer']);
     }
 }

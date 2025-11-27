@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -50,4 +51,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isEditor()
+    {
+        return $this->role === 'editor';
+    }
+
+    public function isViewer()
+    {
+        return $this->role === 'viewer';
+    }
+
 }

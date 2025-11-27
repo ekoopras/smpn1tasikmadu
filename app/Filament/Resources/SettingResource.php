@@ -72,4 +72,15 @@ class SettingResource extends Resource
             //'edit' => Pages\EditSetting::route('/{record}/edit'),
         ];
     }
+
+         //ROLE
+   public static function canViewAny(): bool
+    {
+        return ! in_array(auth()->user()->role, ['editor', 'viewer']);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ! in_array(auth()->user()->role, ['editor', 'viewer']);
+    }
 }

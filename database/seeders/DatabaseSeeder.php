@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'spensata',
             'email' => 'spensata@mail.com',
             'password' => 'Useradmin123@',
+            'role' => 'admin',
         ]);
     }
 }

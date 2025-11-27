@@ -119,4 +119,16 @@ class PostResource extends Resource
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
+
+    //ROLE
+//    public static function canViewAny(): bool
+//     {
+//         return ! in_array(auth()->user()->role, ['admin', 'viewer']);
+//     }
+
+//     public static function shouldRegisterNavigation(): bool
+//     {
+//         return ! in_array(auth()->user()->role, ['admin', 'viewer']);
+//     }
+
 }

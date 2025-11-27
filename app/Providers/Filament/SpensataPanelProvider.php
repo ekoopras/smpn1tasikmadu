@@ -30,6 +30,7 @@ class SpensataPanelProvider extends PanelProvider
             ->default()
             ->id('spensata')
             ->path('spensata')
+            ->favicon(asset('favicon.svg'))
             ->brandName($setting?->site_name ?? 'Admin Panel')
             ->login()
             ->colors([
