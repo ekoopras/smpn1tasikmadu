@@ -6,7 +6,7 @@
      JUMBOTRON + SLIDESHOW
 =========================== -->
 <!-- FULL WIDTH JUMBOTRON -->
-<section class="hero-section py-7">
+<section class="hero-section-jumbotron py-7">
     <div class="container">
         <div class="row align-items-center">
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 /* WRAPPER */
-.hero-section {
+.hero-section-jumbotron {
     background-blend-mode: multiply;
     background-color: initial;
     background-image: url(https://www.amikomsolo.ac.id/wp-content/uploads/2023/07/geometic-bg-white.jpg),linear-gradient(296deg,#c45d13 0%,#edb61e 100%);
