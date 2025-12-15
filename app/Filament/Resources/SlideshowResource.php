@@ -25,29 +25,27 @@ class SlideshowResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->label('Judul')
-                    ->maxLength(255),
-
-                Forms\Components\Textarea::make('caption')
-                    ->label('Keterangan'),
-
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Gambar')
                     ->directory('slides')
                     ->image()
                     ->required(),
-
+                Forms\Components\TextInput::make('title')
+                    ->label('Judul')
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('caption')
+                    ->label('Keterangan'),    
                 Forms\Components\TextInput::make('order')
                     ->numeric()
                     ->label('Urutan')
                     ->default(0),
-
                 Forms\Components\Toggle::make('is_active')
                     ->label('Aktif')
                     ->default(true),
-            ]);
+            ])
+            ->columns(1); // ⬅️ paksa 1 kolom
     }
+
 
     public static function table(Table $table): Table
     {
@@ -62,7 +60,11 @@ class SlideshowResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->button(),
+                Tables\Actions\DeleteAction::make()
+                ->button(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

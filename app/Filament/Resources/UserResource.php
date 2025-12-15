@@ -31,7 +31,6 @@ class UserResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->label('Password')
@@ -49,7 +48,9 @@ class UserResource extends Resource
                     ])
                     ->default('viewer')
                     ->required(),
-            ]);
+            ])
+            ->columns(1);
+
     }
 
     public static function table(Table $table): Table
@@ -76,7 +77,10 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->button(),
+                Tables\Actions\DeleteAction::make()
+                ->button(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -96,8 +100,8 @@ class UserResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            //'create' => Pages\CreateUser::route('/create'),
+            //'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 

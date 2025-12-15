@@ -85,17 +85,21 @@ class PostResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('thumbnail')->square(),
-                TextColumn::make('title')->searchable()->sortable(),
+                TextColumn::make('title')->searchable()->sortable()->wrap()->limit(50),
                 TextColumn::make('user.name')->label('Author')->sortable(),
                 TextColumn::make('category.name')->label('Category')->sortable(),
-                IconColumn::make('is_published')->boolean(),
-                TextColumn::make('created_at')->dateTime()->sortable(),
+                IconColumn::make('is_published')->label('Post')->boolean(),
+                TextColumn::make('created_at')->date('d M Y')->sortable(),
+                
             ])
             ->filters([
                 Filter::make('published')->query(fn ($q) => $q->where('is_published', true)),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->button(),
+                Tables\Actions\DeleteAction::make()
+                ->button(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

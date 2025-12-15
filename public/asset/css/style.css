@@ -1,21 +1,4 @@
-.topbar {
-    background-color: #007bff;
-    color: white;
-    font-size: 14px;
-}
-.nav-link i {
-    font-size: 14px;
-    margin-left: 4px;
-}
-
-/* Sticky header */
-.header-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 1030;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
+/* ======================================== */
 
 .service-box {
 background: #f3f9fc;
@@ -51,41 +34,21 @@ color: #062b4f;
     object-position: center; /* fokus tengah */
 }
 
+
+
+
 @media (max-width: 768px) {
-    .contact {
-        display: none;
-    }
-    .slide-img {
-        height: 300px;  /* lebih pendek di HP */
-    }
-}
+    
 
-
-/* BLOG */
-.blog-scroll-wrapper {
-    gap: 24px;
-    scroll-snap-type: x mandatory;
-}
-
-.blog-card {
-    min-width: 300px;
-    min-height: 350px;
-    scroll-snap-align: center;
+    
 }
 
 
 
 
-/* YOUTUBE */
-.video-scroll-wrapper {
-    gap: 24px;
-    scroll-snap-type: x mandatory;
-}
 
-.video-card {
-    min-width: 340px;
-    scroll-snap-align: center;
-}
+
+
 
 
 /* Dot List Blue */
@@ -139,20 +102,5 @@ color: #062b4f;
 
 
 
-.hero-section {
-    height: 20vh; /* Full screen */
-    background-color: #1d4ed8;
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-
-/* Lapisan gelap (agar teks lebih jelas) */
-
-.hero-section .container {
-    position: relative;
-    z-index: 2; /* supaya muncul di atas overlay */
-}
 
 

@@ -18,7 +18,7 @@ class HomeController extends Controller
             ->orderBy('order')
             ->get();
 
-        $setting = Setting::first(); // ambil logo & nama situs
+        $setting = Setting::getSettings(); // ambil logo & nama situs
 
         $posts = Post::where('is_published', true)->latest()->take(10)->get();
 

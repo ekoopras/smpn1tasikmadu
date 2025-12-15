@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\SettingPage;
 use App\Models\Setting;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -33,6 +34,7 @@ class SpensataPanelProvider extends PanelProvider
             ->favicon(asset('favicon.svg'))
             ->brandName($setting?->site_name ?? 'Admin Panel')
             ->login()
+            ->pages([ SettingPage::class,])
             ->colors([
                 'primary' => Color::Amber,
             ])

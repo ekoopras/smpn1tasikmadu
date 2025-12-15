@@ -36,4 +36,19 @@ class Youtube extends Model
         // fallback jika tidak bisa parse
         return $url;
     }
+
+    protected $appends = ['thumbnail'];
+
+    public function getThumbnailAttribute()
+    {
+        preg_match(
+            '/(youtu\.be\/|v=)([^&]+)/',
+            $this->url,
+            $matches
+        );
+
+        return isset($matches[2])
+            ? "https://img.youtube.com/vi/{$matches[2]}/hqdefault.jpg"
+            : null;
+    }
 }

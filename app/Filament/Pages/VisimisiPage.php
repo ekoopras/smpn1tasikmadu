@@ -4,7 +4,9 @@ namespace App\Filament\Pages;
 
 use App\Models\Visimisi;
 use Filament\Actions\Action;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
@@ -31,17 +33,22 @@ class VisimisiPage extends Page
     public function form(Form $form): Form
     {
         return $form
-            ->schema([
-                RichEditor::make('visi')
-                    ->label('Visi')
-                    ->required()
-                    ->placeholder('Masukkan Visi...'),
-                
-                RichEditor::make('misi')
-                    ->label('Misi')
-                    ->required()
-                    ->placeholder('Masukkan Misi...'),
-            ])
+        ->schema([
+                Section::make('Masukan Visi & Misi')
+                    ->schema([
+                        RichEditor::make('visi')
+                            ->label('Visi')
+                            ->required()
+                            ->placeholder('Masukkan Visi...'),
+                        
+                        RichEditor::make('misi')
+                            ->label('Misi')
+                            ->required()
+                            ->placeholder('Masukkan Misi...'),
+                    ])
+
+        ])
+            
             ->statePath('data');
     }
 
@@ -74,6 +81,13 @@ class VisimisiPage extends Page
 
     public static function shouldRegisterNavigation(): bool
     {
-        return ! in_array(auth()->user()->role, ['editor', 'viewer']);
+        return true; // biar terdaftar
+    }
+
+    public static function canAccess(): bool
+    {
+        $user = Filament::auth()->user();
+
+        return $user && ! in_array($user->role, ['editor', 'viewer']);
     }
 }

@@ -36,7 +36,9 @@ class CategoryResource extends Resource
 
             TextInput::make('slug')
                 ->unique(ignoreRecord: true),
-            ]);
+            ])
+            ->columns(1);
+            
     }
 
     public static function table(Table $table): Table
@@ -47,13 +49,18 @@ class CategoryResource extends Resource
                 TextColumn::make('slug')->sortable(),
                 TextColumn::make('posts_count')
                     ->counts('posts')
-                    ->label('Total Posts'),
+                    ->label('Total Posts')
+                    ->badge(),
+                    
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->button(),
+                Tables\Actions\DeleteAction::make()
+                ->button(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

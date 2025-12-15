@@ -5,17 +5,8 @@
             <!-- LEFT COPYRIGHT -->
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                 <small>
-                    © Copyrights 2025 Edubin | Developed By Pixelcurve.
+                    © Copyrights 2025 | Developed By smby.
                 </small>
-            </div>
-  
-            <!-- RIGHT MENU -->
-            <div class="col-md-6 text-center text-md-end">
-                <a href="#" class="text-white text-decoration-none mx-2">Terms & Condition</a>
-                <span class="text-white">|</span>
-                <a href="#" class="text-white text-decoration-none mx-2">Privacy Policy</a>
-                <span class="text-white">|</span>
-                <a href="#" class="text-white text-decoration-none mx-2">Contact Us</a>
             </div>
   
         </div>
