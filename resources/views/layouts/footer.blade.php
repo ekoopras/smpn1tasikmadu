@@ -1,21 +1,16 @@
-<footer class="bg-black text-white py-4 position-relative">
-    <div class="container">
-        <div class="row align-items-center">
-  
-            <!-- LEFT COPYRIGHT -->
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <small>
-                    © Copyrights 2025 | Developed By smby.
-                </small>
-            </div>
-  
-        </div>
+<footer class="border-top py-4 mt-5" style="background-color: #fff">
+    <div class="container text-center">
+
+        <p class="mb-1 fw-small">
+            Copyright © 2020 - 2025 Smby Code All Right Reserved
+        </p>
+
+        <p class="mb-0 text-muted">
+            Dibuat dengan <span class="text-danger">❤️</span> by
+            <a href="https://smpn1tasikmadu.sch.id" class="text-decoration-none fw-semibold">
+                spensata
+            </a>
+        </p>
+
     </div>
-  
-    <!-- SCROLL TO TOP BUTTON -->
-    <button id="backToTop" 
-            class="position-fixed bottom-0 end-0 m-4 rounded-circle border border-warning"
-            style="width:55px;height:55px;background:transparent;">
-        <i class="bi bi-arrow-up text-warning fs-4"></i>
-    </button>
-  </footer>
+</footer>

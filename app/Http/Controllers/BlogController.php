@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-   
+
     public function index()
     {
         $segment = request()->segment(1);
@@ -20,7 +20,7 @@ class BlogController extends Controller
         // LIST POST (INDEX)
         $posts = Post::where('is_published', true)
             ->latest()
-            ->paginate(4);
+            ->paginate(8);
 
         // CATEGORIES + COUNT
         $categorys = Category::withCount('posts')->get();
@@ -48,11 +48,10 @@ class BlogController extends Controller
         $categorys = Category::withCount('posts')->get();
 
         $recentPosts = Post::where('id', '!=', $post->id) // kecuali post yang sedang dibuka
-        ->latest() // order by created_at desc
-        ->take(8)
-        ->get();
+            ->latest() // order by created_at desc
+            ->take(8)
+            ->get();
 
         return view('blog.show', compact('post', 'setting', 'categorys', 'recentPosts'));
     }
-
 }

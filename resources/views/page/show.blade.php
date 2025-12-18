@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <!-- MAIN CONTENT -->
     <div class="container py-4">
@@ -14,46 +13,20 @@
 
                         <!-- TITLE -->
                         <h1 class="fw-bold mb-3">
-                            {{ $post->title }}
+                            {{ $page->title }}
                         </h1>
 
                         <hr class="mb-4">
 
-                        <!-- META INFO -->
-                        <div class="d-flex flex-wrap align-items-center gap-3 mb-4 text-muted small">
-                            <span>
-                                <i class="bi bi-person-fill text-primary me-1"></i>
-                                {{ $post->user->name }}
-                            </span>
-
-                            {{-- <span>
-                    <i class="bi bi-calendar-event text-primary me-1"></i>
-                    {{ $post->created_at->format('d M Y') }}
-                </span> --}}
-
-                            <span>
-                                <i class="bi bi-chat-left-text text-primary me-1"></i>
-                                0 Comments
-                            </span>
-                        </div>
-
-                        <!-- THUMBNAIL -->
-                        @if ($post->thumbnail)
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}"
-                                class="img-fluid rounded mb-4" style="object-fit: cover;">
-                        @endif
-
                         <!-- CONTENT -->
                         <div class="post-content fs-6 lh-lg">
-                            {!! $post->content !!}
+                            {!! $page->content !!}
                         </div>
 
                     </div>
                 </article>
 
             </div>
-
-
 
             <div class="col-lg-4">
 

@@ -1,36 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<!-- SEO Meta Tags -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SMPN 1 TASIKMADU</title>
-<meta name="description" content="sekolah smp di karanganyar terfavorit">
+    <title>SMPN 1 TASIKMADU</title>
+    <meta name="description" content="sekolah smp di karanganyar terfavorit">
 
-<!-- Keywords (opsional untuk Google, masih berguna untuk beberapa search engine) -->
-<meta name="keywords" content="smpn1tasikmadu, sekolah smp di karanganyar terfavorit, smp karanganyar">
+    <!-- Keywords (opsional untuk Google, masih berguna untuk beberapa search engine) -->
+    <meta name="keywords" content="smpn1tasikmadu, sekolah smp di karanganyar terfavorit, smp karanganyar">
 
-<meta name="author" content="SMPN 1 TASIKMADU">
+    <meta name="author" content="SMPN 1 TASIKMADU">
+    <meta name="theme-color" content="#d97706" />
 
-<link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 
 
-  <!-- Bootstrap CSS -->
-  <link href="{{ asset('asset/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link href="{{ asset('asset/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Google Fonts: Poppins -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
-  rel="stylesheet">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ===== POST CONTENT (RICH EDITOR) ===== */
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1.5rem auto;
+            border-radius: 12px;
+        }
+
+        .post-content iframe,
+        .post-content video {
+            max-width: 100%;
+        }
+
+        .post-content figure {
+            margin: 2rem 0;
+        }
+
+        .post-content figcaption {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .post-content p {
+            margin-bottom: 1rem;
+        }
+
+        .post-content a img {
+            display: block;
+            margin: 1.5rem auto;
+        }
+
+        .attachment__caption {
+            display: none;
+        }
+    </style>
 
 
 </head>
+
 <body>
 
 
@@ -47,24 +88,29 @@
     @include('layouts.footer')
 
 
-<style>
-   :root {
-    --bs-font-sans-serif: "Open Sans", sans-serif;
-    --bs-body-font-family: var(--bs-font-sans-serif);
-}
-body{
-  background-color: #f8fafc;
-}
-</style>
-<script src="{{ asset('asset/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <style>
+        :root {
+            --bs-font-sans-serif: "Open Sans", sans-serif;
+            --bs-body-font-family: var(--bs-font-sans-serif);
+        }
 
-<script>
-    const btnTop = document.getElementById("backToTop");
-    
-    btnTop.addEventListener("click", () => {
-         window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-</script>
+        body {
+            background-color: #f8fafc;
+        }
+    </style>
+    <script src="{{ asset('asset/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script>
+        const btnTop = document.getElementById("backToTop");
+
+        btnTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
 
 </body>
+
 </html>
